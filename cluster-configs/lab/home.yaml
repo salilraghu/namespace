@@ -1,0 +1,2 @@
+clusterName: "in-cluster"
+clusterAddress: "https://kubernetes.default.svc"

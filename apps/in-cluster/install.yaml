@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    key1: value1
+    key2: value2
+spec: {}
+status: {}

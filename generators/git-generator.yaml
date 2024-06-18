@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test
+spec:
+  generators:
+  - git:
+      repoURL: 
+      revision: main
+      files:
+      - path: "cluster-configs/lab/*.yaml"
+  template:
+    metadata:
+      name: '{{clusterName}}-test-role'
+    spec:
+      sources:
+        - repoURL: 
+          targetRevision: main
+          path: "apps/{{clusterName}}/"
+      destination:
+        server: '{{clusterAddress}}'
+        namespace: '{{namespace}}'
+
